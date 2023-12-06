@@ -29,7 +29,17 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Start Node.js App
-      run: node index.js 
-      env:
-        PORT: 3000
+    
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to server
+      - uses : actions/checkout@v3
+      - run : |
+          echo "Deploying!"
+          rm -rf /var/www/les_noctambules/*
+          cp -r ./* /var/www/les_noctambules/
+          echo "Deployed!"
+      
