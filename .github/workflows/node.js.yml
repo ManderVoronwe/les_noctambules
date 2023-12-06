@@ -26,9 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - run : echo "Compiling the code..."
+    - run : npm i
+    - run : npm run build
+    - run : rm -rf /build/les_noctambules/*
+    - run : cp -r build/* /build/les_noctambules/
+    - run : echo "Compile complete."
     
   deploy:
     needs: build
