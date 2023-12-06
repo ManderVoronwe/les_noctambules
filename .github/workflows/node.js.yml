@@ -34,9 +34,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Deploy to server
-      - uses : actions/checkout@v3
       - run : echo "Deploying!"
       - run : rm -rf /var/www/les_noctambules/*
       - run : cp -r ./* /var/www/les_noctambules/
