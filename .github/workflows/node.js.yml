@@ -29,3 +29,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - name: Start Node.js App
+      run: node index.js 
+      env:
+        PORT: 3000
