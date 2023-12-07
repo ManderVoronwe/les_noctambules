@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [21.x]
+        node-version: [14.x, 16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,19 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run : echo "Compiling the code..."
-    - run : npm i
-    - run : npm run build
-    - run : rm -rf /build/les_noctambules/*
-    - run : cp -r build/* /build/les_noctambules/
-    - run : echo "Compile complete."
-    
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run : echo "Deploying!"
-      - run : rm -rf /var/www/les_noctambules/*
-      - run : cp -r ./* /var/www/les_noctambules/
-      - run : echo "Deployed!"
-      
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
