@@ -64,7 +64,7 @@ function Question({ data }) {
               </button>
             </div>
           ) : (
-            <div>
+            <div style={{margin:0}}>
               <h1>Résultats</h1>
               <p>Vous avez obtenu {score} réponses correctes sur {data.length}.</p>
               <button

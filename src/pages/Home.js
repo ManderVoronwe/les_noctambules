@@ -10,12 +10,48 @@ import nowater from './nowater.png';
 import foodloss from './foodloss.png';
 import flood from './flood.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Question from '../components/Question'
+import HoverEffect from '../components/HoverEffect'
 const appLogoStyle = {
   height: '40vmin',
   pointerEvents: 'none',
 };
+const text = "Le changement climatique est un phénomène mondial caractérisé par l'augmentation des températures moyennes de la surface de la Terre. Cela a des conséquences graves sur l\'environnement, comme la fonte des glaciers, l'élévation du niveau de la mer et la perturbation des écosystèmes. ";
+const source = "Source : Rapport du Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC) ";
 
+const data = [{
+  question: "Quel gaz est principalement responsable du réchauffement climatique ?",
+  choices: [{ answer: "Dioxyde de carbone (CO2)", correct: true },
+  { answer: "Méthane (CH4)", correct: false },
+  { answer: "Protoxyde d'azote (N2O)", correct: false },
+  { answer: "Gaz fluorés", correct: false }
+  ]
+},
+{
+  question: "Quel phénomène climatique résulte de l'augmentation des températures de surface de l'océan Pacifique équatorial ?",
+  choices: [{ answer: "El Niño", correct: true },
+  { answer: "La Mousson", correct: false },
+  { answer: "La Nina", correct: false },
+  { answer: "La Tempête de sable", correct: false }
+  ]
+},
+{
+  question: "Quel secteur est souvent considéré comme le plus grand émetteur de gaz à effet de serre ?",
+  choices: [{ answer: "Transport", correct: false },
+  { answer: "Industrie", correct: true },
+  { answer: "Agriculture", correct: false },
+  { answer: "Gaz fluorés", correct: false }
+  ]
+},
+{
+  question: "Quelle est la principale conséquence du changement climatique sur les écosystèmes marins ?",
+  choices: [{ answer: "Acidification des océans", correct: true },
+  { answer: "Élévation du niveau de la mer", correct: false },
+  { answer: "Perte de biodiversité", correct: false },
+  { answer: "Augmentation des températures de l'eau", correct: false }
+  ]
+}
+];
 const Home = () => (
   <div>
     <Row>
@@ -26,7 +62,7 @@ const Home = () => (
     </Row>
 
     {/* blank space */}
-    <Row style={{ padding: '18px' }} /> 
+    <Row style={{ padding: '18px' }} />
 
     <Row style={{ display: 'flex', justifyContent: 'center' }}>
       <Col style={{ padding: '18px' }}>
@@ -40,7 +76,7 @@ const Home = () => (
 
 
     {/* blank space */}
-    <Row style={{ padding: '18px' }} /> 
+    <Row style={{ padding: '18px' }} />
 
     <h2 style={{ fontSize: 'calc(12px + 6vmin)' }}>Les risques</h2>
 
@@ -63,7 +99,21 @@ const Home = () => (
         <FlippingCard backTitle='Inondations' backText="Avec ses 5 800 km de côte (en métropole), la France est l’un des pays européens les plus menacés par les inondations côtières, dont le risque est renforcé par la montée des eaux et l’érosion causées par le changement climatique. D’ici la fin du siècle, 1.7 million seront en zone à risque si les émissions sont élevées." cardWidth={450} cardHeight={350} frontImg={flood} backLink='Icon by Freepik' backUrl='https://www.freepik.com/icon/natural-disaster_5058745#fromView=search&term=flooding&page=1&position=9&track=ais&uuid=1613f3e4-0dd3-46f3-abd8-90ad1b2bd412' />
       </Col>
     </Row>
+    <HoverEffect text={text} source={source}></HoverEffect>
+    <hr></hr>
+    <Row>
+      <Col>
+        <Question data={data}> </Question>
+
+      </Col>
+    </Row>
+    <Row style={{ padding: '18px' }}></Row>
+    
   </div>
+
+      
+  
+
 );
 
 export default Home;
