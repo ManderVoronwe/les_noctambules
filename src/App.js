@@ -36,7 +36,7 @@ const App = () => {
         </Row>
 
         <div>
-          <FlippingCard frontText="test" backText="back test" cardWidth='200px' cardHeight='350px' frontTitle='titre' backImg={logo} />
+          <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
         </div>
       </header>
     </div>

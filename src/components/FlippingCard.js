@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const FlippingCard = ({ frontText, backText, cardWidth, cardHeight, frontTitle = '', backTitle = '', frontImg = '', backImg = '' }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -45,13 +46,17 @@ const FlippingCard = ({ frontText, backText, cardWidth, cardHeight, frontTitle =
     >
       <div style={cardInnerStyle}>
         <div style={cardFrontBackStyle}>
-          <Card.Img variant="top" src={frontImg} />
+          <Card.Img variant="top" src={frontImg} style={{
+            width: 0.65 * cardWidth
+          }} />
           <Card.Title><h3>{frontTitle}</h3></Card.Title>
           <Card.Body>{frontText}</Card.Body>
         </div>
 
         <div style={{ ...cardFrontBackStyle, ...cardBackStyle }}>
-          <Card.Img variant="top" src={backImg} />
+          <Card.Img variant="top" src={backImg}  style={{
+            width: 0.65 * cardWidth
+          }} />
           <Card.Title><h3>{backTitle}</h3></Card.Title>
           <Card.Body>{backText}</Card.Body>
         </div>
