@@ -18,9 +18,25 @@ const Home = () => (
         <h1>Faire face au changement climatique.</h1>
       </Col>
     </Row>
-    <div>
-      <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
-    </div>
+
+    <Row>
+      <Col style={{ padding: '30px' }}>
+        <div class='col-md'>
+          <Row style={{ alignItems: 'center', padding: '18px', border: '3px', borderColor: 'black', borderStyle: 'solid' }} className='flex'>
+            <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
+            <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
+          </Row>
+        </div>
+        
+        <div class='col-md'>
+          <Row style={{ alignItems: 'center', padding: '18px', border: '3px', borderColor: 'black', borderStyle: 'solid' }} className='flex'>
+            <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
+            <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
+          </Row>
+        </div>
+      </Col>
+    </Row>
+
   </div>
 );
 
