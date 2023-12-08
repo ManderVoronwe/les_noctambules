@@ -99,7 +99,7 @@ const Home = () => (
         <FlippingCard backTitle='Inondations' backText="Avec ses 5 800 km de côte (en métropole), la France est l’un des pays européens les plus menacés par les inondations côtières, dont le risque est renforcé par la montée des eaux et l’érosion causées par le changement climatique. D’ici la fin du siècle, 1.7 million seront en zone à risque si les émissions sont élevées." cardWidth={450} cardHeight={350} frontImg={flood} backLink='Icon by Freepik' backUrl='https://www.freepik.com/icon/natural-disaster_5058745#fromView=search&term=flooding&page=1&position=9&track=ais&uuid=1613f3e4-0dd3-46f3-abd8-90ad1b2bd412' />
       </Col>
     </Row>
-    <HoverEffect text={text} source={source}></HoverEffect>
+    {/* <HoverEffect text={text} source={source}></HoverEffect> */}
     <hr></hr>
     <Row>
       <Col>
