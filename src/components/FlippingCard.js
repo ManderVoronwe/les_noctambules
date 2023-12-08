@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AutoTextSize } from 'auto-text-size'
 
 
-const FlippingCard = ({ frontText, backText, cardWidth, cardHeight, frontTitle = '', backTitle = '', frontImg = '', backImg = '' }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const FlippingCard = ({ frontText, backText, cardWidth, cardHeight, frontTitle = '', backTitle = '', frontImg = '', backImg = '', backLink = '', backUrl = '' }) => {
+const [isFlipped, setIsFlipped] = useState(false);
 
   const cardStyle = {
     perspective: '1000px',
@@ -47,18 +48,19 @@ const FlippingCard = ({ frontText, backText, cardWidth, cardHeight, frontTitle =
       <div style={cardInnerStyle}>
         <div style={cardFrontBackStyle}>
           <Card.Img variant="top" src={frontImg} style={{
-            width: 0.65 * cardWidth
+            width: 0.5 * cardWidth, padding: '15px'
           }} />
-          <Card.Title><h3>{frontTitle}</h3></Card.Title>
-          <Card.Body>{frontText}</Card.Body>
+          <Card.Title><h2>{frontTitle}</h2></Card.Title>
+          <Card.Body><AutoTextSize multiline={true} minFontSizePx={16}>{frontText}</AutoTextSize></Card.Body>
         </div>
 
         <div style={{ ...cardFrontBackStyle, ...cardBackStyle }}>
           <Card.Img variant="top" src={backImg}  style={{
             width: 0.65 * cardWidth
           }} />
-          <Card.Title><h3>{backTitle}</h3></Card.Title>
-          <Card.Body>{backText}</Card.Body>
+          <Card.Title><h2>{backTitle}</h2></Card.Title>
+          <Card.Body><AutoTextSize multiline={true} minFontSizePx={16}>{backText}</AutoTextSize></Card.Body>
+          <Card.Link style={{ fontSize: 'calc(10px + 0.5vmin)' }} href={backUrl}>{backLink}</Card.Link>
         </div>
       </div>
     </Card>
