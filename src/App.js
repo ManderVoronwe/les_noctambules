@@ -1,16 +1,12 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import FlippingCard from './components/FlippingCard';
-import logo from './logo.png';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Legal from './pages/Legal';
+import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const appStyle = {
   textAlign: 'center',
-};
-
-const appLogoStyle = {
-  height: '40vmin',
-  pointerEvents: 'none',
 };
 
 const appHeaderStyle = {
@@ -24,23 +20,30 @@ const appHeaderStyle = {
   color: 'rgb(196, 111, 71)',
 };
 
-const App = () => {
-  return (
+const footerStyle = {
+  marginTop: 'auto',
+  backgroundColor: '#0d3001',
+  color: 'rgb(196, 111, 71)',
+  padding: '20px',
+};
+
+const App = () => (
+  <Router>
     <div style={appStyle} className="App">
       <header style={appHeaderStyle} className="App-header">
-        <Row>
-          <Col style={{ alignItems: 'center' }} className='flex'>
-            <img src={logo} style={appLogoStyle} className="App-logo" alt="logo" />
-            <h1>Faire face au changement climatique.</h1>
-          </Col>
-        </Row>
-
-        <div>
-          <FlippingCard frontText="test" backText="back test" cardWidth={300} cardHeight={350} frontTitle='titre' backImg={logo} />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/legal" element={<Legal />} />
+        </Routes>
       </header>
+
+      <footer style={footerStyle}>
+        <Link to="/legal">
+          Mentions Légales
+        </Link>
+      </footer>
     </div>
-  );
-}
+  </Router>
+);
 
 export default App;
